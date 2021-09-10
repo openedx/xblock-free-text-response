@@ -13,18 +13,18 @@ botocore==1.21.36
     #   boto3
     #   s3transfer
 coverage==5.5
-    # via -r requirements/test.in
+    # via -r test.in
 ddt==1.4.2
-    # via -r requirements/test.in
+    # via -r test.in
 django==2.2.24
     # via
-    #   -c requirements/common_constraints.txt
+    #   -c common_constraints.txt
     #   django-pyfs
     #   xblock-sdk
 django-pyfs==3.1.0
-    # via -r requirements/test.in
+    # via -r test.in
 edx-opaque-keys==2.2.2
-    # via -r requirements/test.in
+    # via -r test.in
 fs==2.4.13
     # via
     #   django-pyfs
@@ -37,7 +37,7 @@ jmespath==0.10.0
     #   boto3
     #   botocore
 lazy==1.4
-    # via -r requirements/test.in
+    # via -r test.in
 lxml==4.6.3
     # via xblock
 mako==1.1.5
@@ -47,7 +47,7 @@ markupsafe==2.0.1
     #   mako
     #   xblock
 mock==4.0.3
-    # via -r requirements/test.in
+    # via -r test.in
 pbr==5.6.0
     # via stevedore
 pymongo==3.12.0
@@ -72,7 +72,7 @@ six==1.16.0
     #   fs
     #   fs-s3fs
     #   python-dateutil
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 stevedore==3.4.0
     # via edx-opaque-keys
@@ -87,9 +87,9 @@ webob==1.8.7
 xblock==1.5.1
     # via xblock-utils
 xblock-sdk==0.3.0
-    # via -r requirements/test.in
+    # via -r test.in
 xblock-utils==2.2.0
-    # via -r requirements/test.in
+    # via -r test.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
