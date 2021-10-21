@@ -49,9 +49,9 @@ requirements_py:  # Install required python packages
 	pip install -r requirements/pip.txt
 	pip install -r requirements/base.txt
 
-.PHONY: requirements_travis
-requirements_travis:  requirements_js # Install travis requirements
-	pip install -r requirements/travis.txt
+.PHONY: requirements_ci
+requirements_ci:  requirements_js # Install CI requirements
+	pip install -r requirements/ci.txt
 
 .PHONY: requirements_js
 requirements_js:  # Install required javascript packages
@@ -81,7 +81,7 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with 
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
 	pip-compile --upgrade -o requirements/quality.txt requirements/quality.in
 	pip-compile --upgrade -o requirements/tox.txt requirements/tox.in
-	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 
     # Let tox control the Django version for tests
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
