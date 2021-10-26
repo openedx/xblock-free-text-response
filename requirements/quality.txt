@@ -9,13 +9,13 @@ appdirs==1.4.4
     #   -r requirements/base.txt
     #   -r requirements/test.txt
     #   fs
-astroid==2.8.3
+astroid==2.8.4
     # via pylint
-boto3==1.18.64
+boto3==1.19.3
     # via
     #   -r requirements/test.txt
     #   fs-s3fs
-botocore==1.21.64
+botocore==1.22.3
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -87,7 +87,7 @@ pycodestyle==2.8.0
     # via -r requirements/quality.in
 pylint==2.11.1
     # via -r requirements/quality.in
-pymongo==3.12.0
+pymongo==3.12.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
