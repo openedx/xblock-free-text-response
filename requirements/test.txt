@@ -6,15 +6,31 @@
 #
 appdirs==1.4.4
     # via fs
-asgiref==3.4.1
+arrow==1.2.2
+    # via jinja2-time
+asgiref==3.5.0
     # via django
-boto3==1.20.11
+binaryornot==0.4.4
+    # via cookiecutter
+boto==2.49.0
+    # via xblock-sdk
+boto3==1.20.46
     # via fs-s3fs
-botocore==1.23.11
+botocore==1.23.46
     # via
     #   boto3
     #   s3transfer
-coverage==6.1.2
+certifi==2021.10.8
+    # via requests
+chardet==4.0.0
+    # via binaryornot
+charset-normalizer==2.0.11
+    # via requests
+click==8.0.3
+    # via cookiecutter
+cookiecutter==1.7.3
+    # via xblock-sdk
+coverage==6.3
     # via -r requirements/test.in
 ddt==1.4.4
     # via -r requirements/test.in
@@ -22,9 +38,11 @@ ddt==1.4.4
     #   -c requirements/common_constraints.txt
     #   django-pyfs
     #   xblock-sdk
-django-pyfs==3.1.0
-    # via -r requirements/test.in
-edx-opaque-keys==2.2.2
+django-pyfs==3.2.0
+    # via
+    #   -r requirements/test.in
+    #   xblock-sdk
+edx-opaque-keys==2.3.0
     # via -r requirements/test.in
 fs==2.4.14
     # via
@@ -32,31 +50,53 @@ fs==2.4.14
     #   fs-s3fs
     #   xblock
 fs-s3fs==1.1.1
-    # via django-pyfs
+    # via
+    #   django-pyfs
+    #   xblock-sdk
+idna==3.3
+    # via requests
+jinja2==3.0.3
+    # via
+    #   cookiecutter
+    #   jinja2-time
+jinja2-time==0.2.0
+    # via cookiecutter
 jmespath==0.10.0
     # via
     #   boto3
     #   botocore
 lazy==1.4
-    # via -r requirements/test.in
-lxml==4.6.4
-    # via xblock
+    # via
+    #   -r requirements/test.in
+    #   xblock-sdk
+lxml==4.7.1
+    # via
+    #   xblock
+    #   xblock-sdk
 mako==1.1.6
     # via xblock-utils
 markupsafe==2.0.1
     # via
+    #   jinja2
     #   mako
     #   xblock
 mock==4.0.3
     # via -r requirements/test.in
 pbr==5.8.0
     # via stevedore
-pymongo==3.12.1
+poyo==0.5.0
+    # via cookiecutter
+pymongo==3.12.3
     # via edx-opaque-keys
+pypng==0.0.21
+    # via xblock-sdk
 python-dateutil==2.8.2
     # via
+    #   arrow
     #   botocore
     #   xblock
+python-slugify==5.0.2
+    # via cookiecutter
 pytz==2021.3
     # via
     #   django
@@ -64,12 +104,19 @@ pytz==2021.3
     #   xblock
 pyyaml==6.0
     # via xblock
+requests==2.27.1
+    # via
+    #   cookiecutter
+    #   xblock-sdk
 s3transfer==0.5.0
     # via boto3
 simplejson==3.17.6
-    # via xblock-utils
+    # via
+    #   xblock-sdk
+    #   xblock-utils
 six==1.16.0
     # via
+    #   cookiecutter
     #   fs
     #   fs-s3fs
     #   python-dateutil
@@ -77,17 +124,26 @@ sqlparse==0.4.2
     # via django
 stevedore==3.5.0
     # via edx-opaque-keys
-urllib3==1.26.7
-    # via botocore
-web-fragments==1.1.0
+text-unidecode==1.3
+    # via python-slugify
+urllib3==1.26.8
+    # via
+    #   botocore
+    #   requests
+web-fragments==2.0.0
     # via
     #   xblock
+    #   xblock-sdk
     #   xblock-utils
 webob==1.8.7
-    # via xblock
+    # via
+    #   xblock
+    #   xblock-sdk
 xblock==1.5.1
-    # via xblock-utils
-xblock-sdk==0.4.0
+    # via
+    #   xblock-sdk
+    #   xblock-utils
+xblock-sdk==0.5.1
     # via -r requirements/test.in
 xblock-utils==2.2.0
     # via -r requirements/test.in
