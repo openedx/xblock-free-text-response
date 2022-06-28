@@ -28,11 +28,11 @@ boto==2.49.0
     # via
     #   -r requirements/test.txt
     #   xblock-sdk
-boto3==1.24.10
+boto3==1.24.18
     # via
     #   -r requirements/test.txt
     #   fs-s3fs
-botocore==1.27.10
+botocore==1.27.18
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -41,7 +41,7 @@ certifi==2022.6.15
     # via
     #   -r requirements/test.txt
     #   requests
-chardet==4.0.0
+chardet==5.0.0
     # via
     #   -r requirements/test.txt
     #   binaryornot
@@ -103,7 +103,7 @@ jinja2-time==0.2.0
     # via
     #   -r requirements/test.txt
     #   cookiecutter
-jmespath==1.0.0
+jmespath==1.0.1
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -144,7 +144,7 @@ platformdirs==2.5.2
     # via pylint
 pycodestyle==2.8.0
     # via -r requirements/quality.in
-pylint==2.14.2
+pylint==2.14.3
     # via -r requirements/quality.in
 pymongo==3.12.3
     # via
