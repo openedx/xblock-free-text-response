@@ -18,18 +18,18 @@ asgiref==3.7.2
     #   -r requirements/base.txt
     #   -r requirements/test.txt
     #   django
-astroid==3.0.0
+astroid==3.0.1
     # via pylint
 binaryornot==0.4.4
     # via
     #   -r requirements/test.txt
     #   cookiecutter
-boto3==1.28.62
+boto3==1.28.69
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
     #   fs-s3fs
-botocore==1.31.62
+botocore==1.31.69
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -43,7 +43,7 @@ chardet==5.2.0
     # via
     #   -r requirements/test.txt
     #   binaryornot
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via
     #   -r requirements/test.txt
     #   requests
@@ -151,13 +151,13 @@ pbr==5.11.1
     #   stevedore
 platformdirs==3.11.0
     # via pylint
-pycodestyle==2.11.0
+pycodestyle==2.11.1
     # via -r requirements/quality.in
 pygments==2.16.1
     # via
     #   -r requirements/test.txt
     #   rich
-pylint==3.0.1
+pylint==3.0.2
     # via -r requirements/quality.in
 pymongo==3.13.0
     # via
@@ -248,7 +248,7 @@ typing-extensions==4.8.0
     #   edx-opaque-keys
     #   pylint
     #   rich
-urllib3==1.26.17
+urllib3==1.26.18
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -271,6 +271,7 @@ xblock[django]==1.8.1
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
+    #   xblock
     #   xblock-sdk
     #   xblock-utils
 xblock-sdk==0.7.0

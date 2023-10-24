@@ -12,9 +12,9 @@ asgiref==3.7.2
     # via django
 binaryornot==0.4.4
     # via cookiecutter
-boto3==1.28.62
+boto3==1.28.69
     # via fs-s3fs
-botocore==1.31.62
+botocore==1.31.69
     # via
     #   boto3
     #   s3transfer
@@ -22,7 +22,7 @@ certifi==2023.7.22
     # via requests
 chardet==5.2.0
     # via binaryornot
-charset-normalizer==3.3.0
+charset-normalizer==3.3.1
     # via requests
 click==8.1.7
     # via cookiecutter
@@ -139,7 +139,7 @@ typing-extensions==4.8.0
     #   asgiref
     #   edx-opaque-keys
     #   rich
-urllib3==1.26.17
+urllib3==1.26.18
     # via
     #   botocore
     #   requests
