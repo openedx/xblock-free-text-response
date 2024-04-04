@@ -15,3 +15,6 @@
 
 # Adding pin to avoid conflicts.
 lxml==5.1.0
+
+# Temporary to Support the python 3.11 Upgrade
+backports.zoneinfo;python_version<"3.9"  # Newer versions have zoneinfo available in the standard library
