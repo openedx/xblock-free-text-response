@@ -1,9 +1,15 @@
 # Changelog
 
-## Version 3.3.0
-* Added support for Django 4.2
-* 
-## Version 3.1.0
+## Version 4.1.0
+
+* Added support for python 3.11
+
+## Version 4.0.0
+
+* Remove Transifex calls and bundled translation files for the OEP-58 proposal.
+
+  BREAKING CHANGE: This version breaks translations with Quince and earlier releases.
+
 * Added support for Django 4.2
 
 ## Version 3.0.0

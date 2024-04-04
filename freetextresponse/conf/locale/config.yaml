@@ -2,18 +2,6 @@
 
 locales:
     - en  # English - Source Language
-    - ar  # Arabic
-    - de_DE  # German
-    - es_419  # Spanish (Latin America)
-    - fr  # French
-    - fr_CA  # French (Canada)
-    - he  # Hebrew
-    - hi  # Hindi
-    - ja_JP  # Japanese
-    - ko_KR  # Korean (Korea)
-    - pt_BR  # Portuguese (Brazil)
-    - ru  # Russian
-    - zh_CN  # Chinese (China)
 
 # The locales used for fake-accented English, for testing.
 dummy_locales:
