@@ -12,3 +12,6 @@
 -c common_constraints.txt
 
 # TODO: Many pinned dependencies should be unpinned and/or moved to this constraints file.
+
+# Adding pin to avoid conflicts.
+lxml==5.1.0
