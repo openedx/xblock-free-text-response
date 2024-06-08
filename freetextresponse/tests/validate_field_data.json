@@ -1,5 +1,5 @@
 {
-    "weight_attemps_negative": {
+    "weight_attempts_negative": {
         "weight": -1,
         "max_attempts": 1,
         "max_word_count": 1,
@@ -7,7 +7,7 @@
         "submitted_message": "s",
         "result": "Weight Attempts cannot be negative"
     },
-    "max_attemps_negative": {
+    "max_attempts_negative": {
         "weight": 0,
         "max_attempts": -1,
         "max_word_count": 1,
@@ -34,6 +34,14 @@
     "submission_message_blank": {
         "weight": 0,
         "max_attempts": 1,
+        "max_word_count": 3,
+        "min_word_count": 2,
+        "submitted_message": "",
+        "result": "Submission Received Message cannot be blank"
+    },
+    "submission_message_blank_null_max_attempts": {
+        "weight": 0,
+        "max_attempts": null,
         "max_word_count": 3,
         "min_word_count": 2,
         "submitted_message": "",

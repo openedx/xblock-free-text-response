@@ -1,6 +1,7 @@
 """
 Module To Test FreeTextResponse XBlock
 """
+from datetime import datetime, timedelta
 from os import path
 import json
 import unittest
@@ -88,7 +89,7 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
     def test_validate_field_data(self, **test_dict):
         """
         Checks classmethod validate_field_data
-        tests the instuctor values set in edit
+        tests the instructor values set in edit
         """
         test_data = TestData()
         test_data.weight = test_dict['weight']
@@ -324,6 +325,7 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
     # Messages
     @ddt.data(
         # max_attempts, count_attempts, result
+        (None, 4, ''),
         (0, 4, ''),
         (1, 0, 'You have used 0 of 1 submission'),
         (3, 2, 'You have used 2 of 3 submissions'),
@@ -412,7 +414,7 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
         Tests _get_submitted_message
         Returns a message to display to
         the user after they submit a
-        resopnse
+        response
         """
         self.xblock._word_count_valid = MagicMock(
             return_value=word_count_valid
@@ -497,12 +499,53 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
             self.xblock._get_nodisplay_class()
         )
 
-    def test_submit(self):
+    @ddt.data(
+        ({'max_attempts': None, 'count_attempts': 1}, True),
+        ({'max_attempts': None, 'count_attempts': 3}, True),
+        ({'max_attempts': 0, 'count_attempts': 3}, True),
+        ({'max_attempts': 3, 'count_attempts': 2}, True),
+        ({'max_attempts': 3, 'count_attempts': 3}, False),
+        ({'due': None, 'graceperiod': None}, True),
+        ({'due': None, 'graceperiod': timedelta(hours=1)}, True),
+        (
+            {
+                'due': datetime.utcnow() + timedelta(hours=1),
+                'graceperiod': None,
+            },
+            True,
+        ),
+        (
+            {
+                'due': datetime.utcnow() - timedelta(hours=1),
+                'graceperiod': None,
+            },
+            False,
+        ),
+        (
+            {
+                'due': datetime.utcnow() - timedelta(hours=1),
+                'graceperiod': timedelta(hours=2),
+            },
+            True,
+        ),
+        (
+            {
+                'due': datetime.utcnow() - timedelta(hours=5),
+                'graceperiod': timedelta(hours=2),
+            },
+            False,
+        ),
+    )
+    @ddt.unpack
+    def test_submit(self, xblock_config, can_submit):
         # pylint: disable=protected-access
         """
-        Tests save_reponse results
+        Tests save_response results
         """
-        data = json.dumps({'student_answer': 'asdf'})
+        student_answer = 'asdf'
+        for key, value in xblock_config.items():
+            setattr(self.xblock, key, value)
+        data = json.dumps({'student_answer': student_answer})
         request = TestRequest()
         request.method = 'POST'
         request.body = data.encode('utf-8')
@@ -543,13 +586,27 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
             response.json_body['visibility_class'],
             self.xblock._get_indicator_visibility_class()
         )
+        self.assertEqual(
+            self.xblock.student_answer,
+            student_answer if can_submit else ''
+        )
 
-    def test_save_reponse(self):
+    @ddt.data(
+        ({'max_attempts': None, 'count_attempts': 1}, True),
+        ({'max_attempts': None, 'count_attempts': 3}, True),
+        ({'max_attempts': 0, 'count_attempts': 3}, True),
+        ({'max_attempts': 3, 'count_attempts': 3}, False)
+    )
+    @ddt.unpack
+    def test_save_response(self, xblock_config, can_save):
         # pylint: disable=protected-access
         """
-        Tests save_reponse results
+        Tests save_response results
         """
-        data = json.dumps({'student_answer': 'asdf'})
+        student_answer = 'asdf'
+        for key, value in xblock_config.items():
+            setattr(self.xblock, key, value)
+        data = json.dumps({'student_answer': student_answer})
         request = TestRequest()
         request.method = 'POST'
         request.body = data.encode('utf-8')
@@ -586,4 +643,8 @@ class FreetextResponseXblockTestCase(unittest.TestCase):
         self.assertEqual(
             response.json_body['visibility_class'],
             self.xblock._get_indicator_visibility_class()
+        )
+        self.assertEqual(
+            self.xblock.student_answer,
+            student_answer if can_save else ''
         )
