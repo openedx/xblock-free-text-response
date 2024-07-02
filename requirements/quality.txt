@@ -18,7 +18,7 @@ asgiref==3.8.1
     #   -r requirements/base.txt
     #   -r requirements/test.txt
     #   django
-astroid==3.1.0
+astroid==3.2.2
     # via pylint
 backports-zoneinfo==0.2.1 ; python_version < "3.9"
     # via
@@ -30,16 +30,16 @@ binaryornot==0.4.4
     # via
     #   -r requirements/test.txt
     #   cookiecutter
-boto3==1.34.77
+boto3==1.34.137
     # via
     #   -r requirements/test.txt
     #   fs-s3fs
-botocore==1.34.77
+botocore==1.34.137
     # via
     #   -r requirements/test.txt
     #   boto3
     #   s3transfer
-certifi==2024.2.2
+certifi==2024.6.2
     # via
     #   -r requirements/test.txt
     #   requests
@@ -59,13 +59,13 @@ cookiecutter==2.6.0
     # via
     #   -r requirements/test.txt
     #   xblock-sdk
-coverage==7.4.4
+coverage==7.5.4
     # via -r requirements/test.txt
 ddt==1.7.2
     # via -r requirements/test.txt
 dill==0.3.8
     # via pylint
-django==4.2.11
+django==4.2.13
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
@@ -74,7 +74,11 @@ django==4.2.11
     #   xblock-sdk
 django-pyfs==3.2.0
     # via -r requirements/test.txt
-edx-opaque-keys==2.5.1
+dnspython==2.6.1
+    # via
+    #   -r requirements/test.txt
+    #   pymongo
+edx-opaque-keys==2.10.0
     # via -r requirements/test.txt
 fs==2.4.16
     # via
@@ -88,13 +92,13 @@ fs-s3fs==1.1.1
     #   -r requirements/test.txt
     #   django-pyfs
     #   xblock-sdk
-idna==3.6
+idna==3.7
     # via
     #   -r requirements/test.txt
     #   requests
 isort==5.13.2
     # via pylint
-jinja2==3.1.3
+jinja2==3.1.4
     # via
     #   -r requirements/test.txt
     #   cookiecutter
@@ -112,7 +116,7 @@ lxml==4.9.4
     #   -r requirements/test.txt
     #   xblock
     #   xblock-sdk
-mako==1.3.2
+mako==1.3.5
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -140,17 +144,17 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==4.2.0
+platformdirs==4.2.2
     # via pylint
-pycodestyle==2.11.1
+pycodestyle==2.12.0
     # via -r requirements/quality.in
-pygments==2.17.2
+pygments==2.18.0
     # via
     #   -r requirements/test.txt
     #   rich
-pylint==3.1.0
+pylint==3.2.5
     # via -r requirements/quality.in
-pymongo==3.13.0
+pymongo==4.8.0
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -180,7 +184,7 @@ pyyaml==6.0.1
     #   -r requirements/test.txt
     #   cookiecutter
     #   xblock
-requests==2.31.0
+requests==2.32.3
     # via
     #   -r requirements/test.txt
     #   cookiecutter
@@ -189,7 +193,7 @@ rich==13.7.1
     # via
     #   -r requirements/test.txt
     #   cookiecutter
-s3transfer==0.10.1
+s3transfer==0.10.2
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -206,7 +210,7 @@ six==1.16.0
     #   fs
     #   fs-s3fs
     #   python-dateutil
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -221,13 +225,13 @@ text-unidecode==1.3
     #   python-slugify
 tomli==2.0.1
     # via pylint
-tomlkit==0.12.4
+tomlkit==0.12.5
     # via pylint
 types-python-dateutil==2.9.0.20240316
     # via
     #   -r requirements/test.txt
     #   arrow
-typing-extensions==4.10.0
+typing-extensions==4.12.2
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
@@ -236,7 +240,7 @@ typing-extensions==4.10.0
     #   edx-opaque-keys
     #   pylint
     #   rich
-urllib3==1.26.18
+urllib3==1.26.19
     # via
     #   -r requirements/test.txt
     #   botocore
@@ -253,12 +257,12 @@ webob==1.8.7
     #   -r requirements/test.txt
     #   xblock
     #   xblock-sdk
-xblock==3.1.0
+xblock==4.0.1
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.txt
     #   xblock-sdk
-xblock-sdk==0.10.0
+xblock-sdk==0.11.0
     # via -r requirements/test.txt
 
 # The following packages are considered to be unsafe in a requirements file:
