@@ -15,7 +15,6 @@ jobs:
       matrix:
         os: [ubuntu-20.04]
         python-version:
-        - '3.8'
         - '3.11'
         toxenv: [django42, quality, csslint, eslint, translations_validate]
 
