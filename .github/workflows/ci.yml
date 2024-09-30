@@ -16,6 +16,7 @@ jobs:
         os: [ubuntu-20.04]
         python-version:
         - '3.11'
+        - '3.12'
         toxenv: [django42, quality, csslint, eslint, translations_validate]
 
     steps:

@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.0.0
+* Added python 3.12 support. Dropped python 3.8 support.
+
 ## Version 4.1.0
 * Added python 3.11 support. Dropped django32 support.
 
