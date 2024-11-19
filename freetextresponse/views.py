@@ -7,7 +7,7 @@ from xblock.validation import ValidationMessage
 try:
     from xblock.utils.resources import ResourceLoader
     from xblock.utils.studio_editable import StudioEditableXBlockMixin
-except ModuleNotFoundError:
+except ModuleNotFoundError:  # pragma: no cover
     # For backward compatibility with releases older than Quince.
     from xblockutils.resources import ResourceLoader
     from xblockutils.studio_editable import StudioEditableXBlockMixin
@@ -74,7 +74,7 @@ class FreeTextResponseViewMixin(
         Returns the css class for the submit button
         """
         result = ''
-        if self.max_attempts > 0 and self.count_attempts >= self.max_attempts:
+        if self.max_attempts and 0 < self.max_attempts <= self.count_attempts:
             result = 'nodisplay'
         return result
 
@@ -142,7 +142,7 @@ class FreeTextResponseViewMixin(
         they have used if applicable
         """
         result = ''
-        if self.max_attempts > 0:
+        if self.max_attempts and self.max_attempts > 0:
             result = self.ngettext(
                 'You have used {count_attempts} of {max_attempts} submission',
                 'You have used {count_attempts} of {max_attempts} submissions',
@@ -206,7 +206,7 @@ class FreeTextResponseViewMixin(
         Processes the user's submission
         """
         # Fails if the UI submit/save buttons were shut
-        # down on the previous sumbisson
+        # down on the previous submission
         if self._can_submit():
             self.student_answer = data['student_answer']
             # Counting the attempts and publishing a score
@@ -239,8 +239,8 @@ class FreeTextResponseViewMixin(
         Processes the user's save
         """
         # Fails if the UI submit/save buttons were shut
-        # down on the previous sumbisson
-        if self.max_attempts == 0 or self.count_attempts < self.max_attempts:
+        # down on the previous submission
+        if not self.max_attempts or self.count_attempts < self.max_attempts:
             self.student_answer = data['student_answer']
         result = {
             'status': 'success',
@@ -295,7 +295,7 @@ class FreeTextResponseViewMixin(
         """
         if self.is_past_due():
             return False
-        if self.max_attempts == 0:
+        if not self.max_attempts:
             return True
         if self.count_attempts < self.max_attempts:
             return True
@@ -321,7 +321,7 @@ class FreeTextResponseViewMixin(
                 'Weight Attempts cannot be negative'
             )
             validation.add(msg)
-        if data.max_attempts < 0:
+        if data.max_attempts and data.max_attempts < 0:
             msg = self._generate_validation_message(
                 'Maximum Attempts cannot be negative'
             )

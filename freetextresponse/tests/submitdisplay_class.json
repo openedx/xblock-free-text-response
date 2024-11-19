@@ -1,7 +1,12 @@
 {
+    "empty_null_max": {
+        "max_attempts": null,
+        "count_attempts": 1, 
+        "result": ""
+    },
     "empty_zero_max": {
         "max_attempts": 0,
-        "count_attempts": 1, 
+        "count_attempts": 1,
         "result": ""
     },
     "empty_under_max": {
