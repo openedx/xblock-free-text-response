@@ -4,13 +4,13 @@ Mixin fragment/html behavior into XBlocks
 Note: We should resume test coverage for all lines in this file once
 split into its own library.
 """
+from xblock.core import XBlock
+from web_fragments.fragment import Fragment
+
 try:
     from xblock.utils.resources import ResourceLoader
 except ModuleNotFoundError:
     from xblockutils.resources import ResourceLoader
-
-from xblock.core import XBlock
-from web_fragments.fragment import Fragment
 
 
 loader = ResourceLoader(__name__)
