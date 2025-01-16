@@ -5,12 +5,8 @@ Note: We should resume test coverage for all lines in this file once
 split into its own library.
 """
 from xblock.core import XBlock
+from xblock.utils.resources import ResourceLoader
 from web_fragments.fragment import Fragment
-
-try:
-    from xblock.utils.resources import ResourceLoader
-except ModuleNotFoundError:
-    from xblockutils.resources import ResourceLoader
 
 
 loader = ResourceLoader(__name__)
