@@ -4,10 +4,12 @@ Mixin fragment/html behavior into XBlocks
 Note: We should resume test coverage for all lines in this file once
 split into its own library.
 """
-import pkg_resources
-
 from xblock.core import XBlock
+from xblock.utils.resources import ResourceLoader
 from web_fragments.fragment import Fragment
+
+
+loader = ResourceLoader(__name__)
 
 
 class XBlockFragmentBuilderMixin(object):
@@ -82,8 +84,7 @@ class XBlockFragmentBuilderMixin(object):
                 fragment.add_css_url(url)
             else:
                 item = '../public/' + item
-                data = pkg_resources.resource_string(__name__, item)
-                data = data.decode('utf8')
+                data = loader.load_unicode(item)
                 fragment.add_css(data)
         for item in js:
             item = 'public/' + item

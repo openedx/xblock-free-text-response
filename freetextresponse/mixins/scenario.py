@@ -1,56 +1,33 @@
 """
 Mixin workbench behavior into XBlocks
 """
-from glob import glob
-import pkg_resources
+try:
+    from xblock.utils.resources import ResourceLoader
+except ModuleNotFoundError:
+    from xblockutils.resources import ResourceLoader
 
 
-def _read_file(file_path):
-    """
-    Read in a file's contents
-    """
-    with open(file_path) as file_input:
-        file_contents = file_input.read()
-    return file_contents
+loader = ResourceLoader(__name__)
 
 
-def _parse_title(file_path):
+def _parse_title(title):
     """
-    Parse a title from a file name
+    Parse the title of the scenario
     """
-    title = file_path
-    title = title.split('/')[-1]
-    title = '.'.join(title.split('.')[:-1])
-    title = ' '.join(title.split('-'))
-    title = ' '.join([
-        word.capitalize()
-        for word in title.split(' ')
-    ])
+    title = title.split("-")
+    title = " ".join(title)
     return title
 
 
-def _read_files(files):
+def _parse_scenarios(scenarios):
     """
-    Read the contents of a list of files
+    Parse the content of the scenario files
     """
-    file_contents = [
-        (
-            _parse_title(file_path),
-            _read_file(file_path),
-        )
-        for file_path in files
-    ]
-    return file_contents
-
-
-def _find_files(directory):
-    """
-    Find XML files in the directory
-    """
-    pattern = f"{directory}/*.xml"
-
-    files = glob(pattern)
-    return files
+    parsed_scenarios = []
+    for scenario in scenarios:
+        title = _parse_title(scenario[0])
+        parsed_scenarios.append((title, scenario[1]))
+    return parsed_scenarios
 
 
 class XBlockWorkbenchMixin(object):
@@ -63,9 +40,5 @@ class XBlockWorkbenchMixin(object):
         """
         Gather scenarios to be displayed in the workbench
         """
-        module = cls.__module__
-        module = module.split('.', maxsplit=1)[0]
-        directory = pkg_resources.resource_filename(module, 'scenarios')
-        files = _find_files(directory)
-        scenarios = _read_files(files)
-        return scenarios
+        scenarios = loader.load_scenarios_from_path("../scenarios")
+        return _parse_scenarios(scenarios)
