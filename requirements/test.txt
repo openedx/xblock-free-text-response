@@ -12,9 +12,9 @@ asgiref==3.8.1
     # via django
 binaryornot==0.4.4
     # via cookiecutter
-boto3==1.36.17
+boto3==1.36.22
     # via fs-s3fs
-botocore==1.36.17
+botocore==1.36.22
     # via
     #   boto3
     #   s3transfer
@@ -28,7 +28,7 @@ click==8.1.8
     # via cookiecutter
 cookiecutter==2.6.0
     # via xblock-sdk
-coverage==7.6.11
+coverage==7.6.12
     # via -r requirements/test.in
 ddt==1.7.2
     # via -r requirements/test.in
@@ -108,7 +108,7 @@ rich==13.9.4
     # via cookiecutter
 s3transfer==0.11.2
     # via boto3
-simplejson==3.19.3
+simplejson==3.20.1
     # via
     #   xblock
     #   xblock-sdk
