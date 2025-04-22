@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 5.1.0
+* Added django52 support.
+
 ## Version 4.1.0
 * Added python 3.11 support. Dropped django32 support.
 
